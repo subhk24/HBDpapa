@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Happy Birthday Papa ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    background: #020617;
+    color: white;
+    font-family: Arial;
+    text-align: center;
+    overflow: hidden;
+}
+
+h1, h2 {
+    text-shadow: 0 0 10px #f43f5e;
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 18px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    background: #f43f5e;
+    color: white;
+    box-shadow: 0 0 15px #f43f5e;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+#game, #message {
+    display: none;
+    margin-top: 50px;
+}
+
+#catchBtn {
+    position: absolute;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>Hey Papa ❤️</h1>
+<p>I made something for you 😄</p>
+<button onclick="startGame()">Start 🎮</button>
+
+<div id="game">
+    <h2>Catch the button 😆</h2>
+    <button id="catchBtn">Click Me 😜</button>
+</div>
+
+<div id="message">
+    <h2>🎉 Happy Birthday Papa ❤️ 🎂</h2>
+    <p>
+        You are the best dad ever.<br>
+        Blessed to have you as my papa 💖
+    </p>
+
+    <button onclick="goToMemories()">See Your Surprise 👀</button>
+</div>
+
+<script>
+let moves = 0;
+let maxMoves = 5;
+
+function startGame() {
+    document.getElementById("game").style.display = "block";
+}
+
+let btn = document.getElementById("catchBtn");
+
+btn.addEventListener("mouseover", () => {
+    if (moves < maxMoves) {
+        let x = Math.random() * (window.innerWidth - 100);
+        let y = Math.random() * (window.innerHeight - 100);
+
+        btn.style.left = x + "px";
+        btn.style.top = y + "px";
+
+        moves++;
+    }
+});
+
+btn.addEventListener("click", () => {
+    if (moves >= maxMoves) {
+        document.getElementById("game").style.display = "none";
+        document.getElementById("message").style.display = "block";
+    }
+});
+
+function goToMemories() {
+    window.location.href = "memories.html";
+}
+</script>
+
+</body>
+</html>
