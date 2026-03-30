@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Memories ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    background: #020617;
+    color: white;
+    font-family: Arial;
+    text-align: center;
+}
+/* 🎇 Fairy Lights */
+.lights {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    z-index: 1;
+}
+
+.lights span {
+    width: 10px;
+    height: 20px;
+    background: #f43f5e;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #f43f5e,
+                0 0 20px #f43f5e,
+                0 0 40px #f43f5e;
+    animation: blink 1.5s infinite alternate;
+}
+
+.lights span:nth-child(odd) {
+    animation-delay: 0.5s;
+}
+
+@keyframes blink {
+    from { opacity: 0.3; }
+    to { opacity: 1; }
+}
+
+/* 🎈 Balloons */
+.balloons {
+    position: fixed;
+    bottom: -100px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.balloon {
+    width: 50px;
+    height: 70px;
+    background: #f43f5e;
+    border-radius: 50%;
+    position: relative;
+    animation: float 6s infinite;
+}
+
+.balloon::after {
+    content: "";
+    width: 2px;
+    height: 40px;
+    background: white;
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+}
+
+.balloon:nth-child(2) {
+    animation-delay: 2s;
+    background: #fb7185;
+}
+
+.balloon:nth-child(3) {
+    animation-delay: 4s;
+    background: #fda4af;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-120vh); }
+}
+
+/* ✨ Glow particles */
+body::before {
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(244,63,94,0.2) 1px, transparent 1px);
+    background-size: 40px 40px;
+    animation: moveBg 10s linear infinite;
+    z-index: 0;
+}
+
+@keyframes moveBg {
+    from { transform: translateY(0); }
+    to { transform: translateY(-40px); }
+}
+
+/* make content above decorations */
+body > * {
+    position: relative;
+    z-index: 2;
+}
+
+h1 {
+    margin-top: 30px;
+    text-shadow: 0 0 10px #f43f5e;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+img {
+    width: 220px;
+    margin: 10px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px #f43f5e;
+    transition: 0.3s;
+}
+
+img:hover {
+    transform: scale(1.05);
+}
+
+button {
+    margin-top: 30px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    background: #f43f5e;
+    color: white;
+    cursor: pointer;
+}
+</style>
+
+</head>
+
+<body>
+<!-- Fairy Lights -->
+<div class="lights">
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<!-- Balloons -->
+<div class="balloons">
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+</div>
+<h1>Our Memories ❤️</h1>
+
+<div class="gallery">
+
+    <div class="card">
+        <img src="dad1.jpg">
+        <p>My favorite memory ❤️</p>
+    </div>
+
+    <div class="card">
+        <img src="dad2.jpg">
+        <p>Always my hero 💪</p>
+    </div>
+
+    <div class="card">
+        <img src="dad3.jpg">
+        <p>Best moments together 😄</p>
+    </div>
+
+    <div class="card">
+        <img src="dad4.jpg">
+        <p>Smiles because of you 😊</p>
+    </div>
+
+    <div class="card">
+        <img src="dad5.jpg">
+        <p>Forever grateful 💖</p>
+    </div>
+
+</div>
+<button onclick="goBack()">⬅ Back</button>
+
+<script>
+function goBack() {
+    window.location.href = "index.html";
+}
+</script>
+
+</body>
+</html>
